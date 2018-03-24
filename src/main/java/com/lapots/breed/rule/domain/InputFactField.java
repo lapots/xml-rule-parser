@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
- * XML <input> mirror
+ * XML <input> mirror.
  */
 @Data
 @XmlAccessorType(XmlAccessType.FIELD)

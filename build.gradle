@@ -23,3 +23,37 @@ dependencies {
     testCompile('com.openpojo:openpojo:0.8.9')
     testCompile('nl.jqno.equalsverifier:equalsverifier:2.4.3')
 }
+
+apply plugin: 'checkstyle'
+checkstyle {
+    configDir = file('config')
+}
+
+apply plugin: 'jacoco'
+test {
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
+
+apply plugin: 'findbugs'
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+findbugs {
+    sourceSets = [sourceSets.main]
+}
+
+apply plugin: 'pmd'
+tasks.withType(Pmd) {
+    reports {
+        html.enabled = true
+    }
+}
+
