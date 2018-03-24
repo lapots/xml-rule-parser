@@ -1,2 +1,11 @@
 language: java
 jdk: oraclejdk8
+addons:
+  sonarcloud:
+    organization: lapots-github
+    token:
+      secure: FOhyT53QnWRJwFJBqD7ns8NSyxlRY+tutTcMoNOYGpTWa565laUNi2iRAGi+AE8ghYD4k5eye5EUAovY+whaWrM1C0+VgrzOOTjC8deZAawhv5/p3MHZkfTXw1DPhG8O4sW8k/BAXTr2jDewVWwWKViZ2cSwk7Eexjv+ogrqb1R7/iQSQCuYLuXpdM9ICYxxAaZtrZEPm2VUBfPi+l8p1879Pwv5sVs1I7L0y4Xg1Gq6PAvAcvenf4OYlhsZfiphX6jkphwB0kddYHqde/U2QNC8nJUvQTQvuEjK5EuyFznbPFpcF9gfvOU9zhK4di+2CPTC5H9aHYETe5OKMFLcR7R6ziVTlRF43kpEjglbZNjRzGH/8GLHjCq1RFxmEnbpwqY5hxsnM6ekqI3sXxggt9oxoDOP2rtgcCfYWJ6OE2gR8Hbn4GOEChFZS1ZT2Nigw4I10tmkw7XcScKpcTqVBI68xgmhV+OHmDhBkS0IJoxW5gMsJ8bG9DGySo7R7xIxNFpx6ETrjK3ruCw7UPvkZ0WOLuVT5DFcB2ZSS/iCCDjGVdMtIn4glDj+/Oqh5KjYkeY1faflkZC3EWe7ByKPNZWLgu7hJXrb0A4vJkExlaBOc6TRgpxMwH0842t5OTSvs2eTbM++ipMOnUVzwTnCNTN9JsTxtXm7gLDAJvgqsFQ=
+script:
+  - ./gradlew sonarqube
+after_success:
+  - ./gradlew jacocoTestReport coveralls
