@@ -5,6 +5,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 group = 'com.lapots.breed.rule'
 version = '0.0.1-SNAPSHOT'
@@ -12,4 +13,13 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    compileOnly('org.projectlombok:lombok:1.16.20')
+
+    testCompile('org.codehaus.groovy:groovy-all')
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
+    testCompile('com.openpojo:openpojo:0.8.9')
+    testCompile('nl.jqno.equalsverifier:equalsverifier:2.4.3')
 }
