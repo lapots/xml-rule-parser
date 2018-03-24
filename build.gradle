@@ -2,10 +2,16 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
+        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.2"
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'org.sonarqube'
+apply plugin: 'com.github.kt3k.coveralls'
 
 group = 'com.lapots.breed.rule'
 version = '0.0.1-SNAPSHOT'
