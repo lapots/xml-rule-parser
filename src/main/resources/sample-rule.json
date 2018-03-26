@@ -1,0 +1,65 @@
+{
+  "rules": [
+    {
+      "name": "sample rule",
+      "inputs": [
+        {
+          "fact": "input_fact",
+          "name": "input",
+          "type": "int",
+          "access": "private"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "int",
+          "access": "private"
+        },
+        {
+          "name": "input",
+          "type": "int",
+          "access": "private"
+        }
+      ],
+      "execution": {
+        "when": {
+          "conditions": [
+            {
+              "id": "cond_1",
+              "type": "less_than",
+              "left": {
+                "code": "input"
+              },
+              "right": {
+                "code": "50"
+              }
+            },
+            {
+              "id": "cond_2",
+              "type": "more_than",
+              "left": {
+                "code": "input"
+              },
+              "right": {
+                "code": "20"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "type": "and",
+              "condition": [
+                "cond_1",
+                "cond_2"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "code": "result = input; input = -1;"
+        }
+      }
+    }
+  ]
+}
