@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
     compile("com.fasterxml.jackson.core:jackson-databind:2.9.4")
+    compile("com.mitchellbosecke:pebble:2.4.0")
 
     compileOnly('org.projectlombok:lombok:1.16.20')
 
