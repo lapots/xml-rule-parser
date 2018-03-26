@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 @Data
 @XmlAccessorType(XmlAccessType.FIELD)
 public class InputFactField {
-    @XmlAttribute(name = "input_fact")
+    @XmlAttribute(name = "fact")
     private String factName;
     @XmlAttribute(name = "name")
     private String fieldName;

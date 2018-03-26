@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import java.util.List;
 
 /**
  * XML <condition> element.
@@ -22,6 +21,4 @@ public class Condition {
     private ConditionSide left;
     @XmlElement
     private ConditionSide right;
-    @XmlElement
-    private List<Binding> bindings;
 }

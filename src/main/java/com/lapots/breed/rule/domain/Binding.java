@@ -2,10 +2,8 @@ package com.lapots.breed.rule.domain;
 
 import lombok.Data;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * XML <binding> element.
@@ -15,6 +13,6 @@ import javax.xml.bind.annotation.XmlElement;
 public class Binding {
     @XmlAttribute
     private String type;
-    @XmlElement
-    private String condition;
+    @XmlElement(name = "condition")
+    private List<String> conditions;
 }
