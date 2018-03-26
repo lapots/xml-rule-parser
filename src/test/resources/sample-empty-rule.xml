@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rules>
-    <rule name="sample rule">
-        <inputs/>
-        <outputs/>
-        <execution>
-            <when>
-                <conditions/>
-                <bindings/>
-            </when>
-            <then/>
-        </execution>
-    </rule>
+    <rule name="sample rule"/>
 </rules>

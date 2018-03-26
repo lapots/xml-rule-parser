@@ -20,15 +20,7 @@ class XmlFileParserTestSpec extends Specification {
         setup:
         def filename = "sample-empty-rule.xml"
         def parser = new XmlFileParser()
-        def expected = new DataRule(
-                ruleName: "sample rule",
-                inputs: [],
-                outputs: [],
-                execution: new ExecutionRule(
-                        then: new ThenBlock(),
-                        when: new WhenBlock(conditions: [], bindings: [])
-                )
-        )
+        def expected = new DataRule(ruleName: "sample rule")
         expect:
         [ expected ] == parser.parseRuleFile(filename)
     }

@@ -22,6 +22,8 @@ repositories {
 }
 
 dependencies {
+    compile("com.fasterxml.jackson.core:jackson-databind:2.9.4")
+
     compileOnly('org.projectlombok:lombok:1.16.20')
 
     testCompile('org.codehaus.groovy:groovy-all')

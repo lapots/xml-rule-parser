@@ -1,5 +1,6 @@
 package com.lapots.breed.rule.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.xml.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataRule {
+    @JsonProperty("name")
     @XmlAttribute(name = "name")
     private String ruleName;
     @XmlElementWrapper(name = "inputs")
