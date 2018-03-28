@@ -6,6 +6,9 @@ import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,10 +26,14 @@ public class TemplateClassGenerator implements IClassGenerator {
         try {
             PebbleTemplate template = engine.getTemplate(DEFAULT_CLASS_TEMPLATE);
             Map<String, Object> context = new HashMap<>();
-        } catch (PebbleException e) {
-            e.printStackTrace();
+
+            Writer writer = new StringWriter();
+            template.evaluate(writer, context);
+
+            return null; // return instance of compiled class stored in String
+        } catch (PebbleException | IOException e) {
+            throw new IllegalStateException(e);
         }
-        return null;
     }
 
     @Override

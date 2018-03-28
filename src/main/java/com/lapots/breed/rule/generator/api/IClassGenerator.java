@@ -16,7 +16,7 @@ public interface IClassGenerator {
     Class<?> generateSingleRule(DataRule rule);
 
     /**
-     * Generates list of classes from list of rules
+     * Generates list of classes from list of rules.
      * @param rules rule
      * @return class
      */
