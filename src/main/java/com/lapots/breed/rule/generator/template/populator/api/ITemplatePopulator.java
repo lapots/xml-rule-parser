@@ -1,11 +1,11 @@
-package com.lapots.breed.rule.generator.template.populators.api;
+package com.lapots.breed.rule.generator.template.populator.api;
 
 import com.lapots.breed.rule.domain.DataRule;
 
 import java.util.Map;
 
 /**
- * Interface for data populators.
+ * Interface for data populator.
  */
 public interface ITemplatePopulator {
     /**

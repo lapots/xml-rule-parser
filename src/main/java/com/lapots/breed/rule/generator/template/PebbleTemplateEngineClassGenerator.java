@@ -2,7 +2,7 @@ package com.lapots.breed.rule.generator.template;
 
 import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.generator.template.api.ITemplateEngineClassGenerator;
-import com.lapots.breed.rule.generator.template.populators.api.ITemplatePopulator;
+import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;

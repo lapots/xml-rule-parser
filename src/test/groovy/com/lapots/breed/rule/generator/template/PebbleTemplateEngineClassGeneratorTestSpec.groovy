@@ -1,7 +1,7 @@
 package com.lapots.breed.rule.generator.template
 
 import com.lapots.breed.rule.domain.DataRule
-import com.lapots.breed.rule.generator.template.populators.api.ITemplatePopulator
+import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator
 import spock.lang.Specification
 
 class PebbleTemplateEngineClassGeneratorTestSpec extends Specification {

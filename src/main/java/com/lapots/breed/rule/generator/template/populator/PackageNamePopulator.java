@@ -1,7 +1,8 @@
-package com.lapots.breed.rule.generator.template.populators;
+package com.lapots.breed.rule.generator.template.populator;
 
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.generator.template.populators.api.ITemplatePopulator;
+import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
+import com.lapots.breed.rule.internal.ConfigurationHolder;
 
 import java.util.Map;
 
@@ -21,6 +22,8 @@ public class PackageNamePopulator implements ITemplatePopulator {
 
     @Override
     public Map<String, Object> populate(Map<String, Object> templateData, DataRule src) {
+        templateData.put("package", ConfigurationHolder.findByKey("default_package"));
+
         if (null != next) {
             return next.populate(templateData, src);
         }
