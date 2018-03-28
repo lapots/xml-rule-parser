@@ -3,6 +3,7 @@ package com.lapots.breed.rule.internal;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -15,6 +16,12 @@ public class ConfigurationHolder {
     static {
         InputStream jsonFile = ConfigurationHolder.class.getResourceAsStream("/configuration/configuration.json");
         json = Configuration.defaultConfiguration().jsonProvider().parse(jsonFile, "UTF-8");
+
+        try {
+            jsonFile.close();
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to close /configuration.json file!");
+        }
     }
 
     /**
