@@ -8,9 +8,9 @@ import com.deliveredtechnologies.rulebook.annotation.*;
 
 @Rule(name = "{{ ruleName }}")
 public class {{ className }} {
-    {% for field in fields %}
-    {{ field }}
-    {% endfor %}
+{% for field in fields %}
+    {{ field }};
+{% endfor %}
 
     @When
     public boolean when() {
