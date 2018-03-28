@@ -1,0 +1,7 @@
+{
+  "name" : "John",
+  "location": {
+    "city" : "London",
+    "street"  : "Orme Square"
+  }
+}

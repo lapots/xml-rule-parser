@@ -1,0 +1,11 @@
+{
+  "default_package" : "com.lapots.breed.judge.domain.rule",
+  "bindings": {
+    "and" : "&&",
+    "or"  : "||"
+  },
+  "conditions": {
+    "not_equals"  : "!=",
+    "less_than"   : "<"
+  }
+}
