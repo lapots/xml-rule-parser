@@ -3,18 +3,22 @@ parses xml or json rules into objects acceptable by rulebook library
 
 # Backend
 - _Build tool_
-    - gradle
+    - Gradle
 - _Language_
     - Programming
         - Java
         - Groovy
     - Other
         - XML
+        - JSON
 - _Language libraries_
     - JAXB
     - Lombok
     - OpenPojo
     - EqualsVerifier
+    - JSONPath
+    - Pebble
+    - Jackson
 - _Testing libraries_
     - Spock Framework
 - _Code quality tools_
