@@ -8,6 +8,6 @@ class ClassNamePopulatorTestSpec extends PopulatorTestSpecification {
         setup:
             def populator = new ClassNamePopulator(null)
         expect:
-            assert ["className": "BasicName"] == populator.populate([:], new DataRule(ruleName: "basic name"))
+            ["className": "BasicName"] == populator.populate([:], new DataRule(ruleName: "basic name"))
     }
 }
