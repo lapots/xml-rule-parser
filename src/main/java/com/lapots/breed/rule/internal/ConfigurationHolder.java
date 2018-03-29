@@ -6,6 +6,9 @@ import com.jayway.jsonpath.JsonPath;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static com.lapots.breed.rule.internal.Constants.CONFIGURATION_JSON_PATH;
+import static com.lapots.breed.rule.internal.Constants.DEFAULT_CHARSET;
+
 /**
  * Contains configuration for parser.
  */
@@ -14,8 +17,8 @@ public class ConfigurationHolder {
     private static Object json;
 
     static {
-        InputStream jsonFile = ConfigurationHolder.class.getResourceAsStream("/configuration/configuration.json");
-        json = Configuration.defaultConfiguration().jsonProvider().parse(jsonFile, "UTF-8");
+        InputStream jsonFile = ConfigurationHolder.class.getResourceAsStream(CONFIGURATION_JSON_PATH);
+        json = Configuration.defaultConfiguration().jsonProvider().parse(jsonFile, DEFAULT_CHARSET);
 
         try {
             jsonFile.close();

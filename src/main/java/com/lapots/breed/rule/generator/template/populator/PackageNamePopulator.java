@@ -7,6 +7,9 @@ import com.lapots.breed.rule.internal.ConfigurationHolder;
 
 import java.util.Map;
 
+import static com.lapots.breed.rule.internal.Constants.CONFIGURATION_PACKAGE_ENTRY;
+import static com.lapots.breed.rule.internal.Constants.PACKAGE_NAME_TOKEN;
+
 /**
  * Populates package name in template.
  */
@@ -22,7 +25,7 @@ public class PackageNamePopulator extends AbstractPopulator {
 
     @Override
     protected Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src) {
-        templateData.put("package", ConfigurationHolder.findByKey("default_package"));
+        templateData.put(PACKAGE_NAME_TOKEN, ConfigurationHolder.findByKey(CONFIGURATION_PACKAGE_ENTRY));
         return templateData;
     }
 }

@@ -7,6 +7,8 @@ import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator
 
 import java.util.Map;
 
+import static com.lapots.breed.rule.internal.Constants.CLASS_NAME_TOKEN;
+
 /**
  * Populates class name in template.
  */
@@ -24,7 +26,7 @@ public class ClassNamePopulator extends AbstractPopulator {
     @Override
     protected Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src) {
         String ruleName = src.getRuleName().replaceAll(" ", "_").toUpperCase();
-        templateData.put("className", CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, ruleName));
+        templateData.put(CLASS_NAME_TOKEN, CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, ruleName));
         return templateData;
     }
 }
