@@ -14,13 +14,15 @@ parses xml or json rules into objects acceptable by rulebook library
 - _Language libraries_
     - JAXB
     - Lombok
-    - OpenPojo
-    - EqualsVerifier
     - JSONPath
     - Pebble
     - Jackson
 - _Testing libraries_
     - Spock Framework
+    - PowerMock 2
+    - Mockito 2
+    - OpenPojo
+    - EqualsVerifier
 - _Code quality tools_
     - Checkstyle
     - PMD
