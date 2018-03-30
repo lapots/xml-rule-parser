@@ -17,6 +17,8 @@ parses xml or json rules into objects acceptable by rulebook library
     - JSONPath
     - Pebble
     - Jackson
+- _Embedded compiler_
+    - Openhft Compiler
 - _Testing libraries_
     - Spock Framework
     - PowerMock 2
