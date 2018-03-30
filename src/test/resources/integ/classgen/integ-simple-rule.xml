@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rules>
+    <rule name="sample rule">
+        <inputs>
+            <input fact="input_fact_1" name="input1" type="int" access="private"/>
+            <input fact="input_fact_2" name="input2" type="int" access="private"/>
+        </inputs>
+        <outputs>
+            <output name="result" type="int" access="private"/>
+        </outputs>
+        <execution>
+            <when>
+                <conditions>
+                    <condition id="cond_1" type="less_than">
+                        <left>
+                            <code>input</code>
+                        </left>
+                        <right>
+                            <code>50</code>
+                        </right>
+                    </condition>
+                </conditions>
+                <bindings>
+                    <binding type="and">
+                        <condition>cond_1</condition>
+                    </binding>
+                </bindings>
+            </when>
+            <then>
+                <code>result + 10</code>
+            </then>
+        </execution>
+    </rule>
+</rules>

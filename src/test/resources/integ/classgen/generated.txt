@@ -1,0 +1,21 @@
+package com.lapots.breed.judge.domain.rule;
+
+import com.deliveredtechnologies.rulebook.annotation.*;
+
+
+@Rule(name = "sample rule")
+public class SampleRule {
+    @Result private int result;
+    @Given("input_fact_2") private int input2;
+    @Given("input_fact_1") private int input1;
+
+    @When
+    public boolean when() {
+        return input < 50;
+    }
+
+    @Then
+    public void then() {
+        result + 10;
+    }
+}
