@@ -25,6 +25,7 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-databind:2.9.4")
     compile("com.mitchellbosecke:pebble:2.4.0")
     compile("com.jayway.jsonpath:json-path:2.3.0")
+    compile("net.openhft:compiler:2.3.0")
 
     compileOnly('org.projectlombok:lombok:1.16.20')
 

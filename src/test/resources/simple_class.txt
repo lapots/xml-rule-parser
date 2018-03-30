@@ -1,0 +1,9 @@
+package com.test.compiler;
+
+public class TestClass {
+
+    int execute() {
+        return 1;
+    }
+
+}
