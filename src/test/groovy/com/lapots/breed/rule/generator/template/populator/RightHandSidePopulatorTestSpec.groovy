@@ -8,7 +8,7 @@ class RightHandSidePopulatorTestSpec extends PopulatorTestSpecification {
 
     def "should add rhs to map"() {
         setup:
-        def populator = new RightHandSidePopulator(null)
+        def populator = new RightHandSidePopulator(next: null)
         def src = new DataRule(
                 execution: new ExecutionRule(
                         then: new ThenBlock(code: "int x = 1")
@@ -20,7 +20,7 @@ class RightHandSidePopulatorTestSpec extends PopulatorTestSpecification {
 
     def "should add empty to map"() {
         setup:
-        def populator = new RightHandSidePopulator(null)
+        def populator = new RightHandSidePopulator(next: null)
         def src = new DataRule(
                 execution: new ExecutionRule(
                         then: new ThenBlock()

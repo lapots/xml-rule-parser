@@ -37,7 +37,7 @@ class FieldsPopulatorTestSpec  extends PopulatorTestSpecification {
                     "@Given(\"input_field1\") private int field1",
                     "@Given(\"input_field2\") private int field2"
             ]]
-            def populator = new FieldsPopulator(null)
+            def populator = new FieldsPopulator(next: null)
         expect:
             expected == populator.populate([:], dataRule)
     }
@@ -72,7 +72,7 @@ class FieldsPopulatorTestSpec  extends PopulatorTestSpecification {
                     "@Given(\"result\") @Result private int result",
                     "@Given(\"input_field1\") private int field1"
             ]]
-            def populator = new FieldsPopulator(null)
+            def populator = new FieldsPopulator(next: null)
         expect:
             expected == populator.populate([:], dataRule)
     }

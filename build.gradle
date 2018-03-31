@@ -27,6 +27,7 @@ dependencies {
     compile("com.jayway.jsonpath:json-path:2.3.0")
     compile("net.openhft:compiler:2.3.0")
     compile('commons-io:commons-io:2.6')
+    compile('com.google.inject:guice:4.1.0')
 
     compileOnly('org.projectlombok:lombok:1.16.20')
 
@@ -72,4 +73,3 @@ tasks.withType(Pmd) {
         html.enabled = true
     }
 }
-

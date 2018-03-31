@@ -10,7 +10,7 @@ class PackageNamePopulatorTestSpec extends PopulatorTestSpecification {
         when:
             Mockito.when(ConfigurationHolder.findByKey("default_package"))
                     .thenReturn("random_package")
-            def populator = new PackageNamePopulator(null)
+            def populator = new PackageNamePopulator(next: null)
         then:
             assert ["package": "random_package"] == populator.populate([:], new DataRule())
     }

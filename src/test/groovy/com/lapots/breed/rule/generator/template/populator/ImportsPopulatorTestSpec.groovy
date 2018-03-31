@@ -29,7 +29,7 @@ class ImportsPopulatorTestSpec extends PopulatorTestSpecification {
                             )
                     ]
             )
-            def populator = new ImportsPopulator(null)
+            def populator = new ImportsPopulator(next: null)
         expect:
             ["imports" : ["com.test.another.package.Data", "com.test.package.Data"]] == populator.populate([:], dr)
     }

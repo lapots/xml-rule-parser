@@ -1,5 +1,7 @@
 package com.lapots.breed.rule.generator.template.populator;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.lapots.breed.rule.domain.Binding;
 import com.lapots.breed.rule.domain.Condition;
 import com.lapots.breed.rule.domain.DataRule;
@@ -20,14 +22,6 @@ import static com.lapots.breed.rule.internal.Constants.LHS_TOKEN;
  * Populates lhs in template.
  */
 public class LeftHandSidePopulator extends AbstractPopulator {
-    /**
-     * Constructor.
-     *
-     * @param next next populator in chain
-     */
-    public LeftHandSidePopulator(ITemplatePopulator next) {
-        super(next);
-    }
 
     @Override
     protected Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src) {
@@ -48,6 +42,12 @@ public class LeftHandSidePopulator extends AbstractPopulator {
 
         templateData.put(LHS_TOKEN, expressions.get(0));
         return templateData;
+    }
+
+    @Override
+    @Inject
+    protected void injectNext(@Named("rightHandSidePopulator") ITemplatePopulator next) {
+        setNext(next);
     }
 
     /**

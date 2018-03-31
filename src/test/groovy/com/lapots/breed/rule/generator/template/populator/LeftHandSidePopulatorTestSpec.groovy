@@ -47,7 +47,7 @@ class LeftHandSidePopulatorTestSpec extends PopulatorTestSpecification {
                             )
                     )
             )
-            def populator = new LeftHandSidePopulator(null)
+            def populator = new LeftHandSidePopulator(next: null)
         when:
             Mockito.when(ConfigurationHolder.findByKey("bindings.and")).thenReturn("&&")
             Mockito.when(ConfigurationHolder.findByKey("conditions.less_than")).thenReturn("<")

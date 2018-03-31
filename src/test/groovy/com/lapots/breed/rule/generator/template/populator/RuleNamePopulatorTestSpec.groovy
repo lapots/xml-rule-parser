@@ -6,7 +6,7 @@ class RuleNamePopulatorTestSpec extends PopulatorTestSpecification {
 
     def "should populate with rule name"() {
         setup:
-            def populator = new RuleNamePopulator(null)
+            def populator = new RuleNamePopulator(next: null)
         expect:
             [ "ruleName" : "basic name" ] == populator.populate([:], new DataRule(ruleName: "basic name"))
     }

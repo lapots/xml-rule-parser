@@ -10,14 +10,6 @@ import java.util.Map;
 public abstract class AbstractPopulator implements ITemplatePopulator {
     private ITemplatePopulator next;
 
-    /**
-     * Constructor.
-     * @param next next populator in chain
-     */
-    public AbstractPopulator(ITemplatePopulator next) {
-        this.next = next;
-    }
-
     @Override
     public Map<String, Object> populate(Map<String, Object> templateData, DataRule src) {
         templateData = internalPopulate(templateData, src);
@@ -29,10 +21,24 @@ public abstract class AbstractPopulator implements ITemplatePopulator {
     }
 
     /**
+     * Sets next.
+     * @param next next
+     */
+    protected void setNext(ITemplatePopulator next) {
+        this.next = next;
+    }
+
+    /**
      * Internal action for data population.
      * @param templateData map for template
      * @param src data rule with all data
      * @return map with additional data
      */
     protected abstract Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src);
+
+    /**
+     * Injects next in chain.
+     * @param next next
+     */
+    protected abstract void injectNext(ITemplatePopulator next);
 }

@@ -1,5 +1,6 @@
 {
   "default_package" : "com.lapots.breed.judge.domain.rule",
+  "class_template"  : "./template/rule_class_template.template",
   "bindings": {
     "and" : "&&",
     "or"  : "||"

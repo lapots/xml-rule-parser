@@ -1,10 +1,10 @@
 package com.lapots.breed.rule;
 
+import com.lapots.breed.rule.compiler.OpenhftCachedCompiler;
+import com.lapots.breed.rule.compiler.api.IStringCompiler;
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.generator.template.PebbleTemplateEngineClassGenerator;
-import com.lapots.breed.rule.generator.template.api.ITemplateEngineClassGenerator;
-import com.lapots.breed.rule.generator.template.populator.*;
-import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
+import com.lapots.breed.rule.generator.template.api.IClassGenerator;
+import com.lapots.breed.rule.generator.wrapper.ClassGeneratorWrapper;
 import com.lapots.breed.rule.parser.api.IFileParser;
 import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper;
 
@@ -23,28 +23,26 @@ public class RuleBookRuleClassGenerator {
      * @param filename file to process
      * @return list of class bodies with rules
      */
-    public List<String> generate(String filename) {
+    public List<Class<?>> generate(String filename) {
+        // parse file
         IFileParser parser = new RuleFileParserWrapper();
         List<DataRule> parsedRules = parser.parseRuleFile(filename);
 
-        // prepare class generation
-        // from top to bottom
-        // TODO:refactor
-        ITemplatePopulator rhsPopulator = new RightHandSidePopulator(null);
-        ITemplatePopulator lhsPopulator = new LeftHandSidePopulator(rhsPopulator);
-        ITemplatePopulator fieldsPopulator = new FieldsPopulator(lhsPopulator);
-        ITemplatePopulator classNamePopulator = new ClassNamePopulator(fieldsPopulator);
-        ITemplatePopulator ruleNamePopulator = new RuleNamePopulator(classNamePopulator);
-        ITemplatePopulator importsPopulator = new ImportsPopulator(ruleNamePopulator);
-        ITemplatePopulator packagePopulator = new PackageNamePopulator(importsPopulator);
-        ITemplateEngineClassGenerator templateClassGenerator =
-                new PebbleTemplateEngineClassGenerator("./template/rule_class_template.template",
-                        packagePopulator);
-        // generate
-        return parsedRules
+        // generate java strings
+        IClassGenerator generator = new ClassGeneratorWrapper();
+        List<String> generated = parsedRules
                 .stream()
-                .map(templateClassGenerator::generateClass)
+                .map(generator::generateClass)
+                .collect(Collectors.toList());
+
+        // compile java strings
+        IStringCompiler compiler = new OpenhftCachedCompiler();
+        ClassLoader cl = this.getClass().getClassLoader();
+
+        // return classes
+        return generated
+                .stream()
+                .map(clz -> compiler.compile(clz, cl))
                 .collect(Collectors.toList());
     }
-
 }

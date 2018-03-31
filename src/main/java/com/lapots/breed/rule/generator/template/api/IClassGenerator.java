@@ -3,9 +3,9 @@ package com.lapots.breed.rule.generator.template.api;
 import com.lapots.breed.rule.domain.DataRule;
 
 /**
- * Interface for template engine class generation.
+ * Interface for class generation.
  */
-public interface ITemplateEngineClassGenerator {
+public interface IClassGenerator {
     /**
      * Generate string representation of class from the object.
      * @param object object with data
