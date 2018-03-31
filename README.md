@@ -12,12 +12,17 @@ parses xml or json rules into objects acceptable by rulebook library
         - XML
         - JSON
 - _Language libraries_
-    - JAXB
-    - Lombok
-    - JSONPath
-    - Pebble
-    - Jackson
+    - XML processing
+        - JAXB
+    - JSON processing
+        - JSONPath
+        - Jackson
+    - Other
+        - Lombok
+- _Rule engine_
     - RuleBook
+- _Template engine_
+    - Pebble
 - _IoC_
     - Google Guice
 - _Embedded compiler_
