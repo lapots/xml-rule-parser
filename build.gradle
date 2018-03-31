@@ -26,6 +26,7 @@ dependencies {
     compile("com.mitchellbosecke:pebble:2.4.0")
     compile("com.jayway.jsonpath:json-path:2.3.0")
     compile("net.openhft:compiler:2.3.0")
+    compile('commons-io:commons-io:2.6')
 
     compileOnly('org.projectlombok:lombok:1.16.20')
 

@@ -5,10 +5,8 @@ import com.lapots.breed.rule.generator.template.PebbleTemplateEngineClassGenerat
 import com.lapots.breed.rule.generator.template.api.ITemplateEngineClassGenerator;
 import com.lapots.breed.rule.generator.template.populator.*;
 import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
-import com.lapots.breed.rule.parser.JsonFileParser;
-import com.lapots.breed.rule.parser.XmlFileParser;
 import com.lapots.breed.rule.parser.api.IFileParser;
-import com.lapots.breed.rule.parser.api.SupportedTypes;
+import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,19 +24,7 @@ public class RuleBookRuleClassGenerator {
      * @return list of class bodies with rules
      */
     public List<String> generate(String filename) {
-        // prepare parser
-        String filetype = filename.substring(filename.lastIndexOf(".") + 1).toUpperCase();
-        SupportedTypes type = SupportedTypes.valueOf(filetype);
-
-        IFileParser parser;
-        if (type == SupportedTypes.XML) {
-            parser = new XmlFileParser();
-        } else if (type == SupportedTypes.JSON) {
-            parser = new JsonFileParser();
-        } else {
-            throw new IllegalStateException("Unsupported file format");
-        }
-        // do parsing
+        IFileParser parser = new RuleFileParserWrapper();
         List<DataRule> parsedRules = parser.parseRuleFile(filename);
 
         // prepare class generation
