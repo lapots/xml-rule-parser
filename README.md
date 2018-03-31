@@ -17,6 +17,9 @@ parses xml or json rules into objects acceptable by rulebook library
     - JSONPath
     - Pebble
     - Jackson
+    - RuleBook
+- _IoC_
+    - Google Guice
 - _Embedded compiler_
     - Openhft Compiler
 - _Testing libraries_
