@@ -5,7 +5,7 @@ import com.lapots.breed.rule.compiler.api.IStringCompiler;
 import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.generator.template.api.IClassGenerator;
 import com.lapots.breed.rule.generator.wrapper.ClassGeneratorWrapper;
-import com.lapots.breed.rule.parser.api.IFileParser;
+import com.lapots.breed.rule.parser.file.api.IFileParser;
 import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper;
 
 import java.util.List;

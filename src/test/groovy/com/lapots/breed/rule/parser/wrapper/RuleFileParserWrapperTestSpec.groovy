@@ -1,6 +1,6 @@
 package com.lapots.breed.rule.parser.wrapper
 
-import com.lapots.breed.rule.parser.api.IFileParser
+import com.lapots.breed.rule.parser.file.api.IFileParser
 import spock.lang.Specification
 
 class RuleFileParserWrapperTestSpec extends Specification {

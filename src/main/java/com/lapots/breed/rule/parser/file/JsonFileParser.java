@@ -1,8 +1,8 @@
-package com.lapots.breed.rule.parser;
+package com.lapots.breed.rule.parser.file;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.parser.api.AbstractFileParser;
+import com.lapots.breed.rule.parser.file.api.AbstractFileParser;
 
 import java.io.IOException;
 import java.net.URL;

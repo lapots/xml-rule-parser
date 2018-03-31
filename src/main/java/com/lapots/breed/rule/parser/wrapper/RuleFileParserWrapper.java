@@ -1,7 +1,7 @@
 package com.lapots.breed.rule.parser.wrapper;
 
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.parser.api.IFileParser;
+import com.lapots.breed.rule.parser.file.api.IFileParser;
 import org.apache.commons.io.FilenameUtils;
 
 import java.util.List;

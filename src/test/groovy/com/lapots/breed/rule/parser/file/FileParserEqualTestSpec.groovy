@@ -1,5 +1,7 @@
-package com.lapots.breed.rule.parser
+package com.lapots.breed.rule.parser.file
 
+import com.lapots.breed.rule.parser.file.JsonFileParser
+import com.lapots.breed.rule.parser.file.XmlFileParser
 import spock.lang.Specification
 
 class FileParserEqualTestSpec extends Specification {

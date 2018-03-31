@@ -1,4 +1,4 @@
-package com.lapots.breed.rule.parser.api;
+package com.lapots.breed.rule.parser.file.api;
 
 import com.lapots.breed.rule.domain.DataRule;
 

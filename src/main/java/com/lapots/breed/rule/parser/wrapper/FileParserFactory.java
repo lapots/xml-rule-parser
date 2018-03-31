@@ -1,8 +1,8 @@
 package com.lapots.breed.rule.parser.wrapper;
 
-import com.lapots.breed.rule.parser.JsonFileParser;
-import com.lapots.breed.rule.parser.XmlFileParser;
-import com.lapots.breed.rule.parser.api.IFileParser;
+import com.lapots.breed.rule.parser.file.JsonFileParser;
+import com.lapots.breed.rule.parser.file.XmlFileParser;
+import com.lapots.breed.rule.parser.file.api.IFileParser;
 
 import java.util.HashMap;
 import java.util.Map;

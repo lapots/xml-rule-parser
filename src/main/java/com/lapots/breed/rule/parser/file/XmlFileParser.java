@@ -1,7 +1,7 @@
-package com.lapots.breed.rule.parser;
+package com.lapots.breed.rule.parser.file;
 
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.parser.api.AbstractFileParser;
+import com.lapots.breed.rule.parser.file.api.AbstractFileParser;
 
 import javax.xml.bind.JAXB;
 import java.net.URISyntaxException;

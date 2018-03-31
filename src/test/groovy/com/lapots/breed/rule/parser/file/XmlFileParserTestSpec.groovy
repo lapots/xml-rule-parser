@@ -1,4 +1,4 @@
-package com.lapots.breed.rule.parser
+package com.lapots.breed.rule.parser.file
 
 import com.lapots.breed.rule.domain.Binding
 import com.lapots.breed.rule.domain.Condition
@@ -9,10 +9,11 @@ import com.lapots.breed.rule.domain.InputFactField
 import com.lapots.breed.rule.domain.OutputResultField
 import com.lapots.breed.rule.domain.ThenBlock
 import com.lapots.breed.rule.domain.WhenBlock
+import com.lapots.breed.rule.parser.file.XmlFileParser
 import spock.lang.Specification
 
 /**
- * Tests for {@link XmlFileParser}.
+ * Tests for {@link com.lapots.breed.rule.parser.file.XmlFileParser}.
  */
 class XmlFileParserTestSpec extends Specification {
 
