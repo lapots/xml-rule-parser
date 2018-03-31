@@ -5,7 +5,11 @@
     "or"  : "||"
   },
   "conditions": {
-    "not_equals"  : "!=",
-    "less_than"   : "<"
+    "not_equals"        : "!=",
+    "less_than"         : "<",
+    "equals"            : "==",
+    "more_than"         : ">",
+    "less_equal_than"   : "<=",
+    "more_equal_than"   : ">="
   }
 }
