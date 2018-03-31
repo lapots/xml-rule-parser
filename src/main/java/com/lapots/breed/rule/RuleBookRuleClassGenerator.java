@@ -45,4 +45,14 @@ public class RuleBookRuleClassGenerator {
                 .map(clz -> compiler.compile(clz, cl))
                 .collect(Collectors.toList());
     }
+
+    /**
+     * Main method for testing.
+     * @param args console args
+     */
+    public static void main(String[] args) {
+        RuleBookRuleClassGenerator clz = new RuleBookRuleClassGenerator();
+        List<Class<?>> classes = clz.generate("sample-rule.xml");
+        System.out.println("classes: " + classes);
+    }
 }

@@ -31,6 +31,8 @@ dependencies {
 
     compileOnly('org.projectlombok:lombok:1.16.20')
 
+    runtime('com.deliveredtechnologies:rulebook-core:0.9.1')
+
     testCompile('org.codehaus.groovy:groovy-all')
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
     testCompile('org.mockito:mockito-core:2.16.0')
@@ -72,4 +74,9 @@ tasks.withType(Pmd) {
     reports {
         html.enabled = true
     }
+}
+
+task runtime_test(type: JavaExec) {
+    main = 'com.lapots.breed.rule.RuleBookRuleClassGenerator'
+    classpath = sourceSets.main.runtimeClasspath
 }
