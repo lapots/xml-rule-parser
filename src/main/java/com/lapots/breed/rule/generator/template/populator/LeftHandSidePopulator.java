@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static com.lapots.breed.rule.internal.Constants.LHS_TOKEN;
+
 /**
  * Populates lhs in template.
  */
@@ -44,7 +46,7 @@ public class LeftHandSidePopulator extends AbstractPopulator {
                 .map(bindingEntry -> formExpression(conditions, bindingEntry.getValue()))
                 .collect(Collectors.toList());
 
-        templateData.put("lhs", expressions.get(0));
+        templateData.put(LHS_TOKEN, expressions.get(0));
         return templateData;
     }
 

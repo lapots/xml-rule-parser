@@ -13,6 +13,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.lapots.breed.rule.internal.Constants.FIELDS_TOKEN;
+import static com.lapots.breed.rule.internal.Constants.INPUT_FACT_ANNOTATION_TEMPLATE;
+import static com.lapots.breed.rule.internal.Constants.RESULT_ANNOTATION_TEMPLATE;
+
 /**
  * Populate fields in template.
  */
@@ -36,7 +40,7 @@ public class FieldsPopulator extends AbstractPopulator {
                 .sorted(Comparator.comparing(o -> o.getValue().get(0).getFieldType())) // type is a superclass field
                 .map(entry -> mapFieldToString(entry.getValue()))
                 .collect(Collectors.toList());
-        templateData.put("fields", fieldStrings);
+        templateData.put(FIELDS_TOKEN, fieldStrings);
         return templateData;
     }
 
@@ -48,10 +52,10 @@ public class FieldsPopulator extends AbstractPopulator {
     private String mapFieldToAnnotation(Field field) {
         if (field instanceof InputFactField) {
             InputFactField inputFactField = (InputFactField) field;
-            return String.format("@Given(\"%s\")", inputFactField.getFactName());
+            return String.format(INPUT_FACT_ANNOTATION_TEMPLATE, inputFactField.getFactName());
         } else if (field instanceof OutputResultField) {
-            return "@Result";
-        } else { // probably impossible if XML model is strict
+            return RESULT_ANNOTATION_TEMPLATE;
+        } else { // FIXME:probably impossible if XML model is strict
             return "???";
         }
     }

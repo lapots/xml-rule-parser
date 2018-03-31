@@ -5,18 +5,18 @@ import com.lapots.breed.rule.domain.Field;
 import com.lapots.breed.rule.generator.template.populator.api.AbstractPopulator;
 import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.lapots.breed.rule.internal.Constants.IMPORTS_TOKEN;
+import static com.lapots.breed.rule.internal.Constants.JVM_IMPORTS;
+
 /**
  * Populates imports in template.
  */
 public class ImportsPopulator extends AbstractPopulator {
-    private static final List<String> JVM_IMPORTS = Arrays.asList("int", "float", "double", "long");
-
     /**
      * Constructor.
      *
@@ -35,7 +35,7 @@ public class ImportsPopulator extends AbstractPopulator {
                 .distinct()
                 .sorted() // to have order
                 .collect(Collectors.toList());
-        templateData.put("imports", imports);
+        templateData.put(IMPORTS_TOKEN, imports);
         return templateData;
     }
 }

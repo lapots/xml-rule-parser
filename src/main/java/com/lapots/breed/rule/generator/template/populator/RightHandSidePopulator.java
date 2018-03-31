@@ -7,6 +7,8 @@ import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator
 
 import java.util.Map;
 
+import static com.lapots.breed.rule.internal.Constants.RHS_TOKEN;
+
 /**
  * Populates rhs in template.
  */
@@ -23,7 +25,7 @@ public class RightHandSidePopulator extends AbstractPopulator {
     @Override
     protected Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src) {
         ThenBlock then = src.getExecution().getThen(); // assuming that then will be initialized always
-        templateData.put("rhs", then.getCode() == null ? "" : then.getCode());
+        templateData.put(RHS_TOKEN, then.getCode() == null ? "" : then.getCode());
         return templateData;
     }
 }

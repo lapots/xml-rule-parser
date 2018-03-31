@@ -3,13 +3,13 @@ package com.lapots.breed.rule.compiler;
 import com.lapots.breed.rule.compiler.api.IStringCompiler;
 import net.openhft.compiler.CompilerUtils;
 
+import static com.lapots.breed.rule.internal.Constants.CLASS_CODE;
+import static com.lapots.breed.rule.internal.Constants.PACKAGE_CODE;
+
 /**
  * OpenHFT compiler.
  */
 public class OpenhftCachedCompiler implements IStringCompiler {
-    private static final String PACKAGE_CODE = "package";
-    private static final String CLASS_CODE = "public class";
-
     @Override
     public Class<?> compile(String code, ClassLoader classLoader) {
         String className = findClassName(code);
@@ -28,7 +28,8 @@ public class OpenhftCachedCompiler implements IStringCompiler {
     private String findClassName(String code) {
         code = code.trim();
         // TODO:rethink
-        String clsPackage = code.substring(code.indexOf(PACKAGE_CODE) + PACKAGE_CODE.length(), code.indexOf(";")).trim();
+        String clsPackage =
+                code.substring(code.indexOf(PACKAGE_CODE) + PACKAGE_CODE.length(), code.indexOf(";")).trim();
         String className = code.substring(code.indexOf(CLASS_CODE) + CLASS_CODE.length(), code.indexOf("{")).trim();
 
         return clsPackage + "." + className;

@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import static com.lapots.breed.rule.internal.Constants.CONFIGURATION_JSON_PATH;
 import static com.lapots.breed.rule.internal.Constants.DEFAULT_CHARSET;
+import static com.lapots.breed.rule.internal.Constants.JSON_FILE_ERROR;
 
 /**
  * Contains configuration for parser.
@@ -23,7 +24,7 @@ public class ConfigurationHolder {
         try {
             jsonFile.close();
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to close /configuration.json file!");
+            throw new IllegalStateException(JSON_FILE_ERROR);
         }
     }
 
