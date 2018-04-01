@@ -10,8 +10,14 @@ import java.util.List;
  * Wrapper over file parsing.
  */
 public class RuleFileParserWrapper implements IFileParser {
+    private FileParserFactory factory;
 
-    private FileParserFactory factory = new FileParserFactory();
+    /**
+     * Constructor.
+     */
+    public RuleFileParserWrapper() {
+        factory = new FileParserFactory();
+    }
 
     @Override
     public List<DataRule> parseRuleFile(String filename) {

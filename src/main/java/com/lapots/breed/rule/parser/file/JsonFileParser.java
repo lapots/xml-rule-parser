@@ -1,28 +1,21 @@
 package com.lapots.breed.rule.parser.file;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.parser.file.api.AbstractFileParser;
+import com.lapots.breed.rule.internal.parser.InternalRuleParser;
+import com.lapots.breed.rule.parser.file.api.IFileParser;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
 /**
  * Parses json file.
  */
-public class JsonFileParser extends AbstractFileParser {
+public class JsonFileParser implements IFileParser {
 
     @Override
     public List<DataRule> parseRuleFile(String filename) {
-        try {
-            URL jsonFile = this.getClass().getClassLoader().getResource(filename);
-            ObjectMapper mapper = new ObjectMapper();
-            DataRules allRules = mapper.readValue(jsonFile, DataRules.class);
-            return allRules.getRules();
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
+        URL jsonFile = this.getClass().getClassLoader().getResource(filename);
+        return InternalRuleParser.parseJsonFile(jsonFile);
     }
 
 }
