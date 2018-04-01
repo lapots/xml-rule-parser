@@ -5,8 +5,8 @@ import com.lapots.breed.rule.compiler.api.IStringCompiler;
 import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.generator.template.api.IClassGenerator;
 import com.lapots.breed.rule.generator.wrapper.ClassGeneratorWrapper;
-import com.lapots.breed.rule.parser.file.api.IFileParser;
-import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper;
+import com.lapots.breed.rule.parser.DefaultRuleParser;
+import com.lapots.breed.rule.parser.api.IRuleParser;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +25,8 @@ public class RuleBookRuleClassGenerator {
      */
     public List<Class<?>> generate(String filename) {
         // parse file
-        IFileParser parser = new RuleFileParserWrapper();
-        List<DataRule> parsedRules = parser.parseRuleFile(filename);
+        IRuleParser parser = new DefaultRuleParser();
+        List<DataRule> parsedRules = parser.parseFile(filename);
 
         // generate java strings
         IClassGenerator generator = new ClassGeneratorWrapper();
