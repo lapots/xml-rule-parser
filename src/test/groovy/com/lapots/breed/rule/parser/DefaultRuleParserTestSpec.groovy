@@ -1,6 +1,6 @@
 package com.lapots.breed.rule.parser
 
-import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper
+import com.lapots.breed.rule.parser.wrapper.file.RuleFileParserWrapper
 import com.lapots.breed.rule.parser.wrapper.string.RuleStringParserWrapper
 import spock.lang.Specification
 

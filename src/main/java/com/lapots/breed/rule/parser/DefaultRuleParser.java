@@ -4,7 +4,7 @@ import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.parser.api.IRuleParser;
 import com.lapots.breed.rule.parser.file.api.IFileParser;
 import com.lapots.breed.rule.parser.string.api.IStringParser;
-import com.lapots.breed.rule.parser.wrapper.RuleFileParserWrapper;
+import com.lapots.breed.rule.parser.wrapper.file.RuleFileParserWrapper;
 import com.lapots.breed.rule.parser.wrapper.string.RuleStringParserWrapper;
 
 import java.util.List;
