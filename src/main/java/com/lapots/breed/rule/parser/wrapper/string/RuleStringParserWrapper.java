@@ -2,6 +2,7 @@ package com.lapots.breed.rule.parser.wrapper.string;
 
 import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.parser.string.api.IStringParser;
+import com.lapots.breed.rule.parser.wrapper.api.IParserFactory;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * Wrapper over string parsing.
  */
 public class RuleStringParserWrapper implements IStringParser {
-    private StringParserFactory factory;
+    private IParserFactory<IStringParser> factory;
 
     /**
      * Constructor.

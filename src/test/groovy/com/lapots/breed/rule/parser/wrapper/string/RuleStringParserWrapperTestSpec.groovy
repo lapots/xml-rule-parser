@@ -8,7 +8,7 @@ class RuleStringParserWrapperTestSpec extends Specification {
     def "should parse json string"() {
         setup:
             IStringParser jsonStringParser = Mock { parseRuleString(_) >> [] }
-            StringParserFactory parserFactory = Mock { getParser("json") >> jsonStringParser }
+            def parserFactory = Mock(StringParserFactory) { getParser("json") >> jsonStringParser }
             def rsp = new RuleStringParserWrapper(factory: parserFactory)
         expect:
             [] == rsp.parseRuleString("{ document }") // don't check valid structure
@@ -18,7 +18,7 @@ class RuleStringParserWrapperTestSpec extends Specification {
     def "should parse xml string"() {
         setup:
             IStringParser jsonStringParser = Mock { parseRuleString(_) >> [] }
-            StringParserFactory parserFactory = Mock { getParser("xml") >> jsonStringParser }
+            def parserFactory = Mock(StringParserFactory) { getParser("xml") >> jsonStringParser }
             def rsp = new RuleStringParserWrapper(factory: parserFactory)
         expect:
             [] == rsp.parseRuleString("< document >") // don't check valid structure
