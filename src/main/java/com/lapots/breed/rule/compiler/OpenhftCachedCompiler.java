@@ -16,7 +16,7 @@ public class OpenhftCachedCompiler implements IStringCompiler {
         try {
             return CompilerUtils.CACHED_COMPILER.loadFromJava(classLoader, className, code);
         } catch (ClassNotFoundException e) {
-            throw new IllegalStateException("Failed to compile class");
+            throw new IllegalStateException("Failed to compile class", e);
         }
     }
 

@@ -27,7 +27,7 @@
                 </bindings>
             </when>
             <then>
-                <code>result + 10</code>
+                <code>int fin = result + 10</code>
             </then>
         </execution>
     </rule>

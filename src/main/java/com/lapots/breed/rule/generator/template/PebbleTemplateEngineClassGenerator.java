@@ -2,6 +2,7 @@ package com.lapots.breed.rule.generator.template;
 
 import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.generator.template.api.IClassGenerator;
+import com.lapots.breed.rule.generator.template.populator.PreProcessUtils;
 import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
@@ -37,7 +38,8 @@ public class PebbleTemplateEngineClassGenerator implements IClassGenerator {
         try {
             PebbleTemplate pbTemplate = engine.getTemplate(template);
             Map<String, Object> context = new HashMap<>();
-            context = populator.populate(context, object);
+            // TODO:think about place
+            context = populator.populate(context, PreProcessUtils.fillNulls(object));
 
             Writer writer = new StringWriter();
             pbTemplate.evaluate(writer, context);

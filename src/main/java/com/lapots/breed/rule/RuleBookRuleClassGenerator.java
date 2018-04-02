@@ -1,15 +1,11 @@
 package com.lapots.breed.rule;
 
+import com.lapots.breed.rule.builder.RuleClassGenerator;
 import com.lapots.breed.rule.compiler.OpenhftCachedCompiler;
-import com.lapots.breed.rule.compiler.api.IStringCompiler;
-import com.lapots.breed.rule.domain.DataRule;
-import com.lapots.breed.rule.generator.template.api.IClassGenerator;
 import com.lapots.breed.rule.generator.wrapper.ClassGeneratorWrapper;
 import com.lapots.breed.rule.parser.DefaultRuleParser;
-import com.lapots.breed.rule.parser.api.IRuleParser;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Generates RuleBook rule class using xml.
@@ -27,26 +23,13 @@ public class RuleBookRuleClassGenerator {
      * @return list of class bodies with rules
      */
     public List<Class<?>> generate(String filename) {
-        // parse file
-        IRuleParser parser = new DefaultRuleParser();
-        List<DataRule> parsedRules = parser.parseFile(filename);
-
-        // generate java strings
-        IClassGenerator generator = new ClassGeneratorWrapper();
-        List<String> generated = parsedRules
-                .stream()
-                .map(generator::generateClass)
-                .collect(Collectors.toList());
-
-        // compile java strings
-        IStringCompiler compiler = new OpenhftCachedCompiler();
-        ClassLoader cl = this.getClass().getClassLoader();
-
-        // return classes
-        return generated
-                .stream()
-                .map(clz -> compiler.compile(clz, cl))
-                .collect(Collectors.toList());
+        return new RuleClassGenerator()
+                .withClassLoader(this.getClass().getClassLoader())
+                .withCompiler(new OpenhftCachedCompiler())
+                .withGenerator(new ClassGeneratorWrapper())
+                .withBuilderType(RuleClassGenerator.BuilderType.FILE)
+                .withParser(new DefaultRuleParser())
+                .generate(filename);
     }
 
     /**

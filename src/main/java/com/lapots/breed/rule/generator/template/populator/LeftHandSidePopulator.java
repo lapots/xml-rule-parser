@@ -40,7 +40,7 @@ public class LeftHandSidePopulator extends AbstractPopulator {
                 .map(bindingEntry -> formExpression(conditions, bindingEntry.getValue()))
                 .collect(Collectors.toList());
 
-        templateData.put(LHS_TOKEN, expressions.get(0));
+        templateData.put(LHS_TOKEN, expressions.isEmpty() ? "true" : expressions.get(0));
         return templateData;
     }
 
