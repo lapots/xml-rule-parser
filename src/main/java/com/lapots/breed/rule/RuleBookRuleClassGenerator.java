@@ -20,6 +20,9 @@ public class RuleBookRuleClassGenerator {
 
     /**
      * Temporary implementation of class generator.
+     *
+     * May serve as an example of library usage.
+     *
      * @param filename file to process
      * @return list of class bodies with rules
      */
