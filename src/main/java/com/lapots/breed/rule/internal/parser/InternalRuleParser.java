@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
@@ -58,7 +59,8 @@ public class InternalRuleParser {
      * @return list of rules
      */
     public List<DataRule> parseXmlString(String xmlString) {
-        DataRules allRules = JAXB.unmarshal(xmlString, DataRules.class);
+        StringReader reader = new StringReader(xmlString);
+        DataRules allRules = JAXB.unmarshal(reader, DataRules.class);
         return allRules.getRules();
     }
 

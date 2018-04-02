@@ -5,7 +5,7 @@ import com.lapots.breed.rule.domain.DataRule;
 import java.util.List;
 
 /**
- * Common interface for parsers.
+ * Common interface for file parsers.
  */
 public interface IFileParser {
     /**
