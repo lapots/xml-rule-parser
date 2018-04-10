@@ -13,7 +13,7 @@
                 <conditions>
                     <condition id="cond_1" type="less_than">
                         <left>
-                            <code>input</code>
+                            <code>input1</code>
                         </left>
                         <right>
                             <code>50</code>

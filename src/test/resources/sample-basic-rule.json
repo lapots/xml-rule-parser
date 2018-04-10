@@ -30,7 +30,7 @@
               "id": "cond_1",
               "type": "less_than",
               "left": {
-                "code": "input"
+                "code": "input1"
               },
               "right": {
                 "code": "50"
@@ -47,7 +47,7 @@
           ]
         },
         "then": {
-          "code": "result + 10"
+          "code": "int fin = result + 10"
         }
       }
     }

@@ -55,7 +55,7 @@ class JsonFileParserTestSpec extends Specification {
                 ],
                 execution: new ExecutionRule(
                         then: new ThenBlock(
-                                code: "result + 10"
+                                code: "int fin = result + 10"
                         ),
                         when: new WhenBlock(
                                 conditions: [
@@ -63,7 +63,7 @@ class JsonFileParserTestSpec extends Specification {
                                                 conditionId: "cond_1",
                                                 conditionType: "less_than",
                                                 left: new ConditionSide(
-                                                        code: "input"
+                                                        code: "input1"
                                                 ),
                                                 right: new ConditionSide(
                                                         code: "50"
