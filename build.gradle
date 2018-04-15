@@ -5,8 +5,6 @@ buildscript {
     dependencies {
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
         classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.2"
-
-        classpath "com.amazonaws:aws-java-sdk-core:1.11.313"
     }
 }
 
@@ -85,23 +83,8 @@ task runtime_test(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-// publish to aws
+
 apply plugin: 'maven-publish'
-
-import com.amazonaws.auth.*
-import com.amazonaws.auth.profile.*
-
-def fetchCredentials = {
-    try {
-        return new ProfileCredentialsProvider().credentials
-    } catch (e) {
-        logger.debug('Unable to retreive AWS credentials', e)
-    }
-    null
-}
-
-AWSCredentials awsCredentials = fetchCredentials()
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -112,8 +95,8 @@ publishing {
         maven {
             url "s3://repo.mvn.dev/all"
             credentials(AwsCredentials) {
-                accessKey = awsCredentials.AWSAccessKeyId
-                secretKey = awsCredentials.AWSSecretKey
+                accessKey = aws_access_key_id
+                secretKey = aws_secret_access_key
             }
         }
     }
