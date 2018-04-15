@@ -30,6 +30,6 @@ class RuleStringParserWrapperTestSpec extends Specification {
         when:
             rsp.parseRuleString("- document -")
         then:
-            thrown IllegalStateException
+            thrown IllegalArgumentException
     }
 }

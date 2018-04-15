@@ -25,7 +25,7 @@ public class RuleBookRuleClassGenerator {
      * @return list of class bodies with rules
      */
     public List<Class<?>> generate(String filename) {
-        LOGGER.info("Attempt to generate rule: {}.", filename);
+        LOGGER.debug("Attempt to generate rule: {}.", filename);
         return new RuleClassGenerator()
                 .withClassLoader(this.getClass().getClassLoader())
                 .withCompiler(new OpenhftCachedCompiler())

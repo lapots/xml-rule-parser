@@ -2,7 +2,6 @@ package com.lapots.breed.rule.parser.wrapper.file
 
 import com.lapots.breed.rule.parser.file.JsonFileParser
 import com.lapots.breed.rule.parser.file.XmlFileParser
-import com.lapots.breed.rule.parser.wrapper.file.FileParserFactory
 import spock.lang.Specification
 
 class FileParserFactoryTestSpec extends Specification {
@@ -27,6 +26,6 @@ class FileParserFactoryTestSpec extends Specification {
         when:
         factory.getParser("abc")
         then:
-        thrown IllegalStateException
+        thrown IllegalArgumentException
     }
 }

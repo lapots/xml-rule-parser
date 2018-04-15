@@ -19,9 +19,10 @@ parses xml or json rules into objects acceptable by rulebook library
         - Jackson
     - Other
         - Lombok
+        - Guava
 - _Logging_
-    - slf4j
-    - logback
+    - Slf4j
+    - Logback
 - _Rule engine_
     - RuleBook
 - _Template engine_

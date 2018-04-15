@@ -8,24 +8,24 @@ class FileParserFactoryTestSpec extends Specification {
 
     def "should return xml parser"() {
         setup:
-            def factory = new StringParserFactory()
+        def factory = new StringParserFactory()
         expect:
-            factory.getParser("xml") instanceof XmlStringParser
+        factory.getParser("xml") instanceof XmlStringParser
     }
 
     def "should return json parser"() {
         setup:
-            def factory = new StringParserFactory()
+        def factory = new StringParserFactory()
         expect:
-            factory.getParser("json") instanceof JsonStringParser
+        factory.getParser("json") instanceof JsonStringParser
     }
 
     def "should throw exception"() {
         setup:
-            def factory = new StringParserFactory()
+        def factory = new StringParserFactory()
         when:
-            factory.getParser("abc")
+        factory.getParser("abc")
         then:
-            thrown IllegalStateException
+        thrown IllegalArgumentException
     }
 }

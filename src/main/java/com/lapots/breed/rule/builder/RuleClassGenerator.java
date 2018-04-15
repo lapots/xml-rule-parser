@@ -8,6 +8,8 @@ import com.lapots.breed.rule.parser.api.IRuleParser;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 /**
  * Builder for class generation.
  */
@@ -74,23 +76,12 @@ public class RuleClassGenerator {
      * @return classes
      */
     public List<Class<?>> generate(String input) {
-        if (parser == null) {
-            throw new IllegalStateException("No parser set!");
-        }
+        checkArgument(null != parser, "No parser set!");
+        checkArgument(null != generator, "No generator set!");
+        checkArgument(null != compiler, "No compiler set!");
+        checkArgument(null != type, "No type set!");
 
-        if (generator == null) {
-            throw new IllegalStateException("No generator set!");
-        }
-
-        if (compiler == null) {
-            throw new IllegalStateException("No compiler set!");
-        }
-
-        if (type == null) {
-            throw new IllegalStateException("No type set!");
-        }
-
-        List<DataRule> parsedRules = null;
+        List<DataRule> parsedRules;
         switch (type) {
             case STRING:
                 parsedRules = parser.parseDocument(input);
@@ -99,7 +90,7 @@ public class RuleClassGenerator {
                 parsedRules = parser.parseFile(input);
                 break;
             default:
-                throw new IllegalStateException("Not supported type");
+                throw new IllegalStateException("Not supported type to parse");
         }
 
         List<String> generated = parsedRules
