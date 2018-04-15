@@ -43,11 +43,11 @@ parses xml or json rules into objects acceptable by rulebook library
     - FindBugs
     - Jacoco
 # Infrastructure
-- _Tools_
-    - Terraform (IAC)
 - _CI/CD_
     - GitHub
     - TravisCI
+- _Artifactory_
+    - AWS S3
 - _Code quality integrations_
     - Sonarcloud
     - Coveralls
