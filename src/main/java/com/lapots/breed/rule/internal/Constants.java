@@ -13,10 +13,14 @@ import java.util.List;
 public class Constants {
     /** Default path to configuration.json .*/
     public static final String CONFIGURATION_JSON_PATH = "/configuration/configuration.json";
+    /** Path to additional configuration properties. */
+    public static final String EXT_CONFIGURATION_JSON_PATH = "/configuration/configuration.ext.json";
     /** default_package entry in configuration.json .*/
     public static final String CONFIGURATION_PACKAGE_ENTRY = "default_package";
     /** Failed to close error message. */
     public static final String JSON_FILE_ERROR = "Failed to close /configuration.json file!";
+    /** Failed to close error message. */
+    public static final String EXT_JSON_FILE_ERROR = "Failed to close /configuration.ext.json file!";
     /** Default charset for file. */
     public static final String DEFAULT_CHARSET = "UTF-8";
     /** Template ruleName token. */

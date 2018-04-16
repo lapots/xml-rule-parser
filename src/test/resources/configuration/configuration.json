@@ -17,5 +17,6 @@
   "conditions": {
     "not_equals"  : "!=",
     "less_than"   : "<"
-  }
+  },
+  "to_override": "original"
 }

@@ -11,4 +11,13 @@ class ConfiugrationHolderTestSpec extends Specification {
             "Orme Square" == ConfigurationHolder.findByKey("location.street")
     }
 
+    def "should process and retrieve external json"() {
+        expect:
+        "Extension" == ConfigurationHolder.findByKey("ext")
+    }
+
+    def "should use overriden json"() {
+        expect:
+        "overridden" == ConfigurationHolder.findByKey("to_override")
+    }
 }
