@@ -5,6 +5,7 @@
     "and" : "&&",
     "or"  : "||"
   },
+  "mapping": {},
   "conditions": {
     "not_equals"        : "!=",
     "less_than"         : "<",

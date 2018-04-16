@@ -6,6 +6,7 @@ import com.lapots.breed.rule.domain.DataRule;
 import com.lapots.breed.rule.domain.Field;
 import com.lapots.breed.rule.generator.template.populator.api.AbstractPopulator;
 import com.lapots.breed.rule.generator.template.populator.api.ITemplatePopulator;
+import com.lapots.breed.rule.internal.ConfigurationHolder;
 
 import java.util.List;
 import java.util.Map;
@@ -22,11 +23,11 @@ public class ImportsPopulator extends AbstractPopulator {
 
     @Override
     protected Map<String, Object> internalPopulate(Map<String, Object> templateData, DataRule src) {
-        // TODO:add mapping support
         List<String> imports = Stream.concat(src.getInputs().stream(), src.getOutputs().stream())
                 .map(Field::getFieldType)
                 .filter(type -> !JVM_IMPORTS.contains(type))
                 .distinct()
+                .map(iprt -> ConfigurationHolder.findByKey("mapping." + iprt))
                 .sorted() // to have order
                 .collect(Collectors.toList());
         templateData.put(IMPORTS_TOKEN, imports);
