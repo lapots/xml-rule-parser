@@ -14,7 +14,7 @@ apply plugin: 'org.sonarqube'
 apply plugin: 'com.github.kt3k.coveralls'
 
 group = 'com.lapots.breed.rule'
-version = '0.5.1-SNAPSHOT'
+version = '0.5.1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -93,7 +93,7 @@ publishing {
     }
     repositories {
         maven {
-            url "s3://repo.mvn.dev/all"
+            url "s3://repo.mvn.dev/release"
             credentials(AwsCredentials) {
                 accessKey = aws_access_key_id
                 secretKey = aws_secret_access_key
