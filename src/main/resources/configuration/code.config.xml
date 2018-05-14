@@ -1,0 +1,22 @@
+<?xml version="1.8" encoding="UTF-8"?>
+<configuration>
+    <template-generation>
+        <populators description="list of data populators">
+            <populator index="0">com.lapots.breed.rule.generator.template.populator.PackageNamePopulator</populator>
+            <populator index="1">com.lapots.breed.rule.generator.template.populator.ImportsPopulator</populator>
+            <populator index="2">com.lapots.breed.rule.generator.template.populator.RuleNamePopulator</populator>
+            <populator index="3">com.lapots.breed.rule.generator.template.populator.ClassNamePopulator</populator>
+            <populator index="4">com.lapots.breed.rule.generator.template.populator.FieldsPopulator</populator>
+            <populator index="5">com.lapots.breed.rule.generator.template.populator.LeftHandSidePopulator</populator>
+            <populator index="6">com.lapots.breed.rule.generator.template.populator.RightHandSidePopulator</populator>
+        </populators>
+        <engines descript="list of available template engines">
+            <engine id="pebble">com.lapots.breed.rule.generator.template.PebbleTemplateEngineClassGenerator</engine>
+        </engines>
+    </template-generation>
+    <class-compilation>
+        <compilers description="list of available compilers">
+            <compiler id="openhft">com.lapots.breed.rule.compiler.OpenhftCachedCompiler</compiler>
+        </compilers>
+    </class-compilation>
+</configuration>
